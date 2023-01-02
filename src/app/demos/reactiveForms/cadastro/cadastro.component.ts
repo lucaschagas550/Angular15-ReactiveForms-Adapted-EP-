@@ -5,7 +5,6 @@ import { DisplayMessage, GenericValidator, ValidationMessages } from './generic-
 import { Observable, fromEvent, merge } from 'rxjs';
 import { CustomValidators } from 'ng2-validation';
 
-
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html'
@@ -18,7 +17,6 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   cadastroForm !: FormGroup;
   usuario !: Usuario;
   formResult: string = '';
-  // MASKS = MASKS;
 
   validationMessages: ValidationMessages;
   genericValidator: GenericValidator;
