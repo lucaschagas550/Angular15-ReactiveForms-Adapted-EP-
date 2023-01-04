@@ -55,4 +55,8 @@ export class ProdutoDashboardComponent {
       imagem: 'headset.jpg'
     }];
   }
+
+  mudarStatus(event: Produto): void {
+    event.ativo = !event.ativo;
+  }
 }
