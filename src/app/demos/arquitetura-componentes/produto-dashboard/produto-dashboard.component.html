@@ -10,6 +10,13 @@
       *ngFor="let produto of produtos"
       [produto]="produto"
       (status)="mudarStatus($event)"
-    ></produto-card-detalhe>
+    >
+      <!--NgContent eh possivel adicionar um conteudo html no seu componente filho, select para espeficicar qual ngcontent para direcionar o html-->
+      <div class="acabou">
+        <h5>Ou va ate uma das nossas lojas</h5>
+        <h5>Ou va ate uma das nossas lojas2</h5>
+      </div>
+      <h5 class="corre">Corre que vai acabar</h5>
+    </produto-card-detalhe>
   </div>
 </div>

@@ -19,6 +19,8 @@
     <div *ngIf="!produto.ativo" class="card-body">
       <div>
         <h4>Avise-me quando chegar</h4>
+        <!--NgContent recebe elemento html do pai-->
+        <ng-content select=".acabou"></ng-content>
       </div>
     </div>
 
@@ -26,6 +28,7 @@
       <div>
         <h4>
           {{ produto.valor | currency : "BRL" : "symbol" : "1.2-2" : "pt" }}
+          <ng-content select=".corre"></ng-content>
         </h4>
       </div>
     </div>
