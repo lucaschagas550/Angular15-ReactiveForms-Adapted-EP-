@@ -9,13 +9,17 @@ registerLocaleData(localePt); // formatar a moeda para pt-br
 
 import { ProdutoDashboardComponent } from './produto-dashboard/produto-dashboard.component';
 import { ProdutoRoutingModule } from './produto.route';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { ProdutoAppComponent } from './produto.app.component';
 
 
 @NgModule({
     declarations: [
+        ProdutoAppComponent,
         ProdutoDashboardComponent,
         ProdutoCardDetalheComponent,
         ProdutoCountComponent,
+        EditarProdutoComponent,
     ],
     imports: [
         CommonModule,
