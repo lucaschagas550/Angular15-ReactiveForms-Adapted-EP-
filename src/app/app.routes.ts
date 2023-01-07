@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './navegacao/home/home.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
+import { NotFoundComponent } from "./navegacao/not-found/not-found.component";
 
 const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +14,9 @@ const rootRouterConfig: Routes = [
         path: 'produtos',
         loadChildren: () => import('./demos/arquitetura-componentes/produto.module') //Lazy-load, carregamento tardio
             .then(m => m.ProdutoModule)
-    }
+    },
+
+    { path: '**', component: NotFoundComponent }, // Caso nao encontrar caminho certo, vai cair aqui, sempre deixar por ultimo 
 ];
 
 @NgModule({
