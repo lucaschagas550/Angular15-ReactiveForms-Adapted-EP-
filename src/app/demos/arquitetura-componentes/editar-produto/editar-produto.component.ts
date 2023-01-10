@@ -1,6 +1,6 @@
 import { ProdutoService } from './../services/produto.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Produto } from '../models/produto';
 
 @Component({
@@ -11,10 +11,13 @@ export class EditarProdutoComponent implements OnInit {
 
   produto !: Produto;
 
-  constructor(private router: ActivatedRoute, private produtoService: ProdutoService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
-    this.router.params
+    this.route.params
       .subscribe(params => {
         var produto = this.produtoService.obterPorId(params['id']);
         if (produto === undefined) {
@@ -30,7 +33,7 @@ export class EditarProdutoComponent implements OnInit {
   salvar() {
     // fazer comunicacao com backend
 
-    // this.router.navigate(['/produtos']);
-    //this.router.navigateByUrl('/produtos');
+    this.router.navigate(['/produtos']); // ele invoca a rota sem recarregar
+    //this.router.navigateByUrl('/produtos'); // ele recarrega a pagina
   }
 }
