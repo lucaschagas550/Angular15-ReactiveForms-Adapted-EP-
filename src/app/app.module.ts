@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/app.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
@@ -23,6 +24,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     AppRoutingModule,
   ],
   providers: [
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
