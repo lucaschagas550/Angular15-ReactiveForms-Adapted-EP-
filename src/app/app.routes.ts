@@ -6,6 +6,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
 import { NotFoundComponent } from "./navegacao/not-found/not-found.component";
 import { AuthGuard } from "./services/app.guard";
 import { CadastroGuard } from "./services/cadastro.guard";
+import { FilmesComponent } from "./demos/pipes/filmes/filmes.component";
 
 const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +28,10 @@ const rootRouterConfig: Routes = [
         canActivate: [AuthGuard], //Diz se posso acessar um recurso, no caso preciso estar logado para acessar o recurso de admin alem de ser admin
         loadChildren: () => import('./admin/admin.module') //Lazy-load, carregamento tardio
             .then(m => m.AdminModule),
+    },
+    {
+        path: 'filmes',
+        component: FilmesComponent,
     },
 
     { path: '**', component: NotFoundComponent }, // Caso nao encontrar caminho certo, vai cair aqui, sempre deixar por ultimo 
