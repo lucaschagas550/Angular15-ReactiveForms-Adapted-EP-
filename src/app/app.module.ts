@@ -9,6 +9,7 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { AppRoutingModule } from './app.routes';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
+import { CadastroGuard } from './services/cadastro.guard';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
   ],
   providers: [
     AuthGuard,
+    CadastroGuard,
   ],
   bootstrap: [AppComponent]
 })

@@ -22,6 +22,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   genericValidator: GenericValidator;
   displayMessage: DisplayMessage = {};
 
+  mudancasNaoSalvas !: boolean;
+
   constructor(private fb: FormBuilder) {
     this.validationMessages = {
       nome: {
@@ -61,7 +63,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
     });
   }
 
-  //blur => tirar foco do item do formulario
+  //blur => tirar foco do item do formulario, e exibir mensagem de erros
   ngAfterViewInit(): void {
     if (this.formInputElements) {
       let controlBlurs: Observable<any>[] = this.formInputElements
@@ -69,6 +71,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
 
       merge(...controlBlurs).subscribe(() => {
         this.displayMessage = this.genericValidator.processarMensagens(this.cadastroForm);
+        this.mudancasNaoSalvas = true;
       });
     }
   }
@@ -79,6 +82,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
       this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value);
       console.log(this.usuario);
       this.formResult = JSON.stringify(this.cadastroForm.value);
+
+      this.mudancasNaoSalvas = false;
     }
     else {
       this.formResult = "Nao Submeteu!!";
