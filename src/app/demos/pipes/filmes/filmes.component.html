@@ -19,7 +19,8 @@
         <td>
           {{ filme.valor | currency : "BRL" : "symbol" : "1.2-2" : "pt" }}
         </td>
-        <td>{{ filme.tamanho }}</td>
+        <td>{{ filme.tamanho | fileSize }}</td>
+        <!--o primeiro parametro eh o filme.tamanho, se tiver mais parametros basta declarar filesize:'teste'-->
       </tr>
     </tbody>
   </table>

@@ -14,6 +14,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { CadastroGuard } from './services/cadastro.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
+import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
     SobreComponent,
     CadastroComponent,
     FilmesComponent,
+    FileSizePipe,
   ],
   imports: [
     BrowserModule,
