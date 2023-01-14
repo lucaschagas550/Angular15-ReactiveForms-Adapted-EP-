@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Filme } from './filme';
+import { ImageFormaterPiper } from './image.pipe';
 
 @Component({
   selector: 'app-filmes',
-  templateUrl: './filmes.component.html'
+  templateUrl: './filmes.component.html',
+  providers: [
+    ImageFormaterPiper
+  ]
 })
 export class FilmesComponent implements OnInit {
 
   filmes!: Filme[];
+  mapped!: Filme[];
+
+  constructor(private ImageFormaterPiper: ImageFormaterPiper) { }
 
   ngOnInit() {
     this.filmes = [
@@ -47,7 +54,17 @@ export class FilmesComponent implements OnInit {
         tamanho: '773039680'
       }
     ];
-  }
 
+    this.mapped = this.filmes.map(filme => {
+      return {
+        nome: filme.nome,
+        dataLancamento: filme.dataLancamento,
+        valor: filme.valor,
+        tamanho: filme.tamanho,
+        imagem: this.ImageFormaterPiper.transform(filme.imagem, 'default', true),
+      }
+    });
+
+  }
 
 }

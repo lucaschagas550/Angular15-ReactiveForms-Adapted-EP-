@@ -15,6 +15,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { CadastroGuard } from './services/cadastro.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
+import { ImageFormaterPiper } from './demos/pipes/filmes/image.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
     CadastroComponent,
     FilmesComponent,
     FileSizePipe,
+    ImageFormaterPiper, // ao injetar direito no component como provider, precisa se injetar como declartions, nao recomendado, sempre preciorisar deixar no modulo
   ],
   imports: [
     BrowserModule,
