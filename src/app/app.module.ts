@@ -16,6 +16,11 @@ import { CadastroGuard } from './services/cadastro.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 import { ImageFormaterPiper } from './demos/pipes/filmes/image.pipe';
+import { BarModule } from './demos/arquitetura-componentes/bar-di-zones/bar/bar.module';
+
+// export const BAR_PROVIDERS: Provider[] = [
+//     BarService,
+// ];
 
 @NgModule({
   declarations: [
@@ -32,6 +37,8 @@ import { ImageFormaterPiper } from './demos/pipes/filmes/image.pipe';
     ReactiveFormsModule,
     NavegacaoModule,
     AppRoutingModule,
+    BarModule,
+    // BAR_PROVIDERS,
   ],
   providers: [
     AuthGuard,

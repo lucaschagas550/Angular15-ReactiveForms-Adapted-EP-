@@ -7,6 +7,7 @@ import { NotFoundComponent } from "./navegacao/not-found/not-found.component";
 import { AuthGuard } from "./services/app.guard";
 import { CadastroGuard } from "./services/cadastro.guard";
 import { FilmesComponent } from "./demos/pipes/filmes/filmes.component";
+import { BarComponent } from "./demos/arquitetura-componentes/bar-di-zones/bar/bar.component";
 
 const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,6 +33,10 @@ const rootRouterConfig: Routes = [
     {
         path: 'filmes',
         component: FilmesComponent,
+    },
+    {
+        path: 'bar',
+        component: BarComponent,
     },
 
     { path: '**', component: NotFoundComponent }, // Caso nao encontrar caminho certo, vai cair aqui, sempre deixar por ultimo 
