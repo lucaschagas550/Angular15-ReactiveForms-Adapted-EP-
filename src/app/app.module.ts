@@ -37,7 +37,10 @@ import { BarModule } from './demos/arquitetura-componentes/bar-di-zones/bar/bar.
     ReactiveFormsModule,
     NavegacaoModule,
     AppRoutingModule,
-    BarModule,
+    BarModule.forRoot({
+      unidadeId: 1000,
+      unidadeToken: 'eca938c99a0e9ff91029dc'
+    }),
     // BAR_PROVIDERS,
   ],
   providers: [
