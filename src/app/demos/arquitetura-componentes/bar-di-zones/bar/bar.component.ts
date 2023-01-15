@@ -1,12 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { BarUnidadeConfig, BAR_UNIDADE_CONFIG } from './bar.config';
-import { BarService } from './bar.service';
-import { Component, Inject, OnInit } from '@angular/core';
+import { BarFactory, BarService } from './bar.service';
+import { Component, Inject, Injector, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bar',
   templateUrl: './bar.component.html',
   providers: [
-    { provide: BarService, useClass: BarService } //BarServicesMock retorna a classes mock do service
+    //{ provide: BarService, useClass: BarService }, //BarServicesMock retorna a classes mock do service
+    { provide: BarService, useFactory: BarFactory, deps: [HttpClient, Injector] } //deps passa as dependecias para o factory
   ]
 })
 export class BarComponent implements OnInit {
@@ -14,6 +16,7 @@ export class BarComponent implements OnInit {
   configManual!: BarUnidadeConfig;
   config!: BarUnidadeConfig;
   barBebida1!: string;
+  dadosUnidade!: string;
 
   constructor(
     private barServices: BarService,
@@ -25,6 +28,7 @@ export class BarComponent implements OnInit {
     this.barBebida1 = this.barServices.obterBebidas();
     this.configManual = this.ApiConfigManual;
     this.config = this.ApiConfig;
+    this.dadosUnidade = this.barServices.obterUnidade();
     console.log(this.barBebida1);
   }
 

@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     BarComponent,
   ],
   providers: [
-    BarService,
+    // BarService,
   ]
 
 })
