@@ -17,6 +17,7 @@ import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 import { ImageFormaterPiper } from './demos/pipes/filmes/image.pipe';
 import { BarModule } from './demos/arquitetura-componentes/bar-di-zones/bar/bar.module';
+import { TodoModule } from './demos/arquitetura-componentes/todo-list/todo.module';
 
 // export const BAR_PROVIDERS: Provider[] = [
 //     BarService,
@@ -42,6 +43,7 @@ import { BarModule } from './demos/arquitetura-componentes/bar-di-zones/bar/bar.
       unidadeToken: 'eca938c99a0e9ff91029dc'
     }),
     // BAR_PROVIDERS,
+    TodoModule,
   ],
   providers: [
     AuthGuard,
