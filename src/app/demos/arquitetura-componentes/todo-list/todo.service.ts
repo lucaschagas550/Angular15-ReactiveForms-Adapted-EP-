@@ -7,6 +7,7 @@ import { Task } from './task';
 @Injectable()
 export class TasksService {
 
+  //HttpClient tem que estar registrado no module para funcionar
   constructor(private http: HttpClient) { }
 
   getTodoList$: Observable<Task[]> = this.http
