@@ -27,7 +27,7 @@ export class Store {
         console.log(state);
         console.log(name);
         console.log(this.value);
-        this.subject.next({ //next esta setando um novo valor
+        this.subject.next({ //next esta setando um novo valor            
             ...this.value, [name]: state //...(spreed) vai propagar a informacao para o name="todolist" que seria uma key que vai receber os dados de this.value para o state, mesma coisa que add(this.value)
             //https://angular-training-guide.rangle.io/features/es6/spread_and_rest
         });
