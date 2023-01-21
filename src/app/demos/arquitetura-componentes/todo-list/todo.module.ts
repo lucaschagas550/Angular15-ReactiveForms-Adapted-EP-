@@ -8,13 +8,15 @@ import { TasksFinalizadasComponent } from './components/tasks-finalizadas/tasks-
 import { TasksIniciadasComponent } from './components/tasks-iniciadas/tasks-iniciadas.component';
 import { ToDoListComponent } from './components/todo-list/todo-list.component';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     TasksService,

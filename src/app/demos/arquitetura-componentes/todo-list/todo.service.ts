@@ -41,4 +41,35 @@ export class TasksService {
         this.store.set('todolist', todolist);
       });
   }
+
+  adicionar(task: Task) {
+    this.http
+      .post('http://localhost:3000/todolist', task)
+      .subscribe(() => {
+
+        const value = this.store.value.todolist;
+
+        var ultimaTask = value.slice(-1).pop();
+        if (ultimaTask !== undefined) {
+
+          task.id = ultimaTask?.id + 1;
+          task.finalizado = false;
+          task.iniciado = false;
+
+          value.push(task);
+          this.store.set('todolist', value);
+        }
+      });
+  }
+
+  remover(id: number) {
+    this.http
+      .delete(`http://localhost:3000/todolist/${id}`)
+      .subscribe(() => {
+
+        const value = this.store.value.todolist.filter(item => item.id !== id);
+
+        this.store.set('todolist', value);
+      });
+  }
 }
